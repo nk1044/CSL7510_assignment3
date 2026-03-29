@@ -1,0 +1,14 @@
+{
+  "title": "System Metrics",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "CPU Usage",
+      "targets": [
+        {
+          "expr": "cpu_usage_percent"
+        }
+      ]
+    }
+  ]
+}

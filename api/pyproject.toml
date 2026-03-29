@@ -1,0 +1,11 @@
+[project]
+name = "autoscale-api"
+version = "0.1.0"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "psutil",
+    "prometheus-client"
+]
+
+[tool.uv]

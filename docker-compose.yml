@@ -1,32 +1,14 @@
 version: '3'
 
 services:
-  api:
-    build: ./api
-    container_name: api
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
-      - "5000:5000"
+      - "9090:9090"
 
-  nginx:
-    build: ./nginx
-    container_name: nginx
+  grafana:
+    image: grafana/grafana
     ports:
-      - "80:80"
-    depends_on:
-      - api
-
-  monitoring:
-    build:
-      context: ./monitoring
-      dockerfile: ../api/Dockerfile
-    container_name: monitoring
-    depends_on:
-      - scaler
-
-  scaler:
-    build:
-      context: ./scaler
-      dockerfile: ../api/Dockerfile
-    container_name: scaler
-    ports:
-      - "6000:6000"
+      - "3000:3000"
